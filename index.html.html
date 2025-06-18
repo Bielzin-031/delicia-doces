@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delícia Doces - Confeitaria Artesanal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600;700&display=swap');
+        
+        :root {
+            --primary: #FF6B8B;
+            --secondary: #FFD166;
+            --accent: #06D6A0;
+            --dark: #2D3047;
+            --light: #FFFCF9;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+        }
+        
+        .logo-font {
+            font-family: 'Pacifico', cursive;
+        }
+        
+        .hero-pattern {
+            background-image: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,214,102,0.4) 100%);
+        }
+        
+        .candy-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-candy-cane text-3xl text-pink-500 mr-2"></i>
+                <h1 class="logo-font text-3xl text-pink-600">Delícia Doces</h1>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-800 hover:text-pink-600 font-medium">Início</a>
+                <a href="#products" class="text-gray-800 hover:text-pink-600 font-medium">Produtos</a>
+                <a href="#about" class="text-gray-800 hover:text-pink-600 font-medium">Sobre</a>
+                <a href="#testimonials" class="text-gray-800 hover:text-pink-600 font-medium">Depoimentos</a>
+                <a href="#contact" class="text-gray-800 hover:text-pink-600 font-medium">Contato</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <button class="md:hidden text-gray-800" id="mobile-menu-button">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+                <button class="hidden md:block bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-full font-medium transition duration-300">
+                    <i class="fas fa-shopping-cart mr-2"></i> Carrinho
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white w-full px-4 py-3 shadow-md" id="mobile-menu">
+            <div class="flex flex-col space-y-3">
+                <a href="#home" class="text-gray-800 hover:text-pink-600 font-medium py-2">Início</a>
+                <a href="#products" class="text-gray-800 hover:text-pink-600 font-medium py-2">Produtos</a>
+                <a href="#about" class="text-gray-800 hover:text-pink-600 font-medium py-2">Sobre</a>
+                <a href="#testimonials" class="text-gray-800 hover:text-pink-600 font-medium py-2">Depoimentos</a>
+                <a href="#contact" class="text-gray-800 hover:text-pink-600 font-medium py-2">Contato</a>
+                <button class="bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-full font-medium transition duration-300 w-full">
+                    <i class="fas fa-shopping-cart mr-2"></i> Carrinho
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-pattern py-16 md:py-24">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-6">
+                    Doces que <span class="text-pink-600">derretem</span> no coração
+                </h2>
+                <p class="text-lg text-gray-600 mb-8">
+                    Confeitaria artesanal feita com ingredientes selecionados e muito amor. Cada doce é uma experiência única de sabor e textura.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <button class="bg-pink-600 hover:bg-pink-700 text-white px-6 py-3 rounded-full font-medium transition duration-300 flex-1">
+                        Ver Produtos <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                    <button class="border-2 border-pink-600 text-pink-600 hover:bg-pink-50 px-6 py-3 rounded-full font-medium transition duration-300 flex-1">
+                        <i class="fas fa-play-circle mr-2"></i> Nossa História
+                    </button>
+                </div>
+            </div>
+            <div class="md:w-1/2 relative">
+                <img src="https://i.imgur.com/ntSUovV.jpeg" 
+                     alt="Doces Delícia" 
+                     class="rounded-2xl shadow-xl w-full max-w-md mx-auto floating">
+                <div class="absolute -bottom-5 -left-5 bg-yellow-300 rounded-full p-4 shadow-lg hidden md:block">
+                    <div class="bg-white rounded-full p-3">
+                        <i class="fas fa-award text-yellow-500 text-2xl"></i>
+                    </div>
+                </div>
+                <div class="absolute -top-5 -right-5 bg-pink-300 rounded-full p-4 shadow-lg hidden md:block">
+                    <div class="bg-white rounded-full p-3">
+                        <i class="fas fa-heart text-pink-500 text-2xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delícia Doces - Confeitaria Artesanal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary: #FF6B8B;
+            --secondary: #FFD166;
+            --accent: #06D6A0;
+            --dark: #2D3047;
+            --light: #FFFCF9;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+        }
+
+        .logo-font {
+            font-family: 'Pacifico', cursive;
+        }
+
+        .hero-pattern {
+            background-image: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,214,102,0.4) 100%);
+        }
+
+        .candy-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+<!-- ... HEADER, HERO E OUTRAS SEÇÕES ... -->
+
+<!-- Featured Products -->
+<section id="products" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Nossos <span class="text-pink-600">Doces</span> Especiais</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">
+                Cada criação é feita com cuidado artesanal para proporcionar uma experiência única de sabor.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Mousse de Maracujá -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden candy-card transition duration-300">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://i.postimg.cc/mZNLZxP9/Whats-App-Image-2025-06-17-at-17-48-57.jpg" alt="Mousse de Maracujá" class="w-full h-full object-cover">
+                    <div class="absolute top-3 right-3 bg-pink-600 text-white text-xs font-bold px-2 py-1 rounded-full">NOVO</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Mousse de Maracujá</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Uma deliciosa mousse artesanal feita com maracujás frescos, finalizada com uma generosa camada de ganache de chocolate e calda natural da fruta. Um equilíbrio perfeito entre o doce e o azedinho que conquista qualquer paladar.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-lg font-bold text-pink-600">R$ 8,90</span>
+                        <button class="bg-pink-100 hover:bg-pink-200 text-pink-600 p-2 rounded-full transition duration-300">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bombom de Morango -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden candy-card transition duration-300">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://i.postimg.cc/0NFYNMHV/Whats-App-Image-2025-06-17-at-17-49-36.jpg" alt="Bombom de Morango" class="w-full h-full object-cover">
+                </div>
+                <div class="p-5">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Bombom de Morango</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Morango inteiro envolto em uma camada cremosa de brigadeiro, coberto com uma deliciosa cobertura de chocolate. Uma explosão de sabor em cada mordida que une o frescor da fruta com o doce do chocolate artesanal.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-lg font-bold text-pink-600">R$ 5,50</span>
+                        <button class="bg-pink-100 hover:bg-pink-200 text-pink-600 p-2 rounded-full transition duration-300">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bolo de Geleia de Morango com Ninho -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden candy-card transition duration-300">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://i.postimg.cc/QdQTgYCZ/Whats-App-Image-2025-06-17-at-17-49-13.jpg" alt="Bolo de Geleia de Morango com Ninho" class="w-full h-full object-cover">
+                    <div class="absolute top-3 right-3 bg-yellow-400 text-white text-xs font-bold px-2 py-1 rounded-full">MAIS VENDIDO</div>
+                </div>
+                <div class="p-5">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Bolo de Geleia de Morango com Ninho</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Camadas fofinhas de massa branca combinadas com recheio cremoso de leite Ninho e uma generosa cobertura de geleia artesanal de morango. Um bolo equilibrado, com sabor suave e visual irresistível — perfeito para qualquer ocasião.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-lg font-bold text-pink-600">R$ 42,90</span>
+                        <button class="bg-pink-100 hover:bg-pink-200 text-pink-600 p-2 rounded-full transition duration-300">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pães de Mel -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden candy-card transition duration-300">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://i.imgur.com/Fer8uRS.jpeg" alt="Pães de Mel" class="w-full h-full object-cover">
+                </div>
+                <div class="p-5">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Pães de Mel</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Massa macia de mel com um toque de especiarias, recheada com doce de leite e coberta com chocolate ao leite. Uma receita clássica que traz aconchego e sabor em cada mordida.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-lg font-bold text-pink-600">R$ 15,90</span>
+                        <button class="bg-pink-100 hover:bg-pink-200 text-pink-600 p-2 rounded-full transition duration-300">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-12">
+            <button class="border-2 border-pink-600 text-pink-600 hover:bg-pink-50 px-8 py-3 rounded-full font-medium transition duration-300">
+                Ver Todos os Produtos <i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- ... RESTANTE DO SITE ... -->
+
+<!-- Alteração de endereço em "Contato" -->
+<!-- Substituir onde estava "São Paulo/SP" por "Betim/MG" e remover "Centro" -->
+<!-- Exemplo: -->
+<!-- <p class="text-gray-600">Rua dos Doces, 123<br>Betim/MG</p> -->
+
+</body>
+</html>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <img src="https://images.unsplash.com/photo-1552689486-f6773047d19f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                         alt="Sobre Delícia Doces" 
+                         class="rounded-2xl shadow-lg w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Nossa <span class="text-pink-600">História</span></h2>
+                    <p class="text-gray-600 mb-6">
+                        Delícia Doces nasceu do amor por doces e da vontade de compartilhar momentos especiais. Tudo começou em uma pequena cozinha, onde nossa confeiteira-chefe transformava receitas de família em verdadeiras obras de arte.
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        Hoje, mantemos a mesma dedicação artesanal, usando apenas ingredientes de alta qualidade e técnicas tradicionais para criar doces que são pura felicidade em cada mordida.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="flex items-center">
+                            <div class="bg-pink-100 text-pink-600 p-3 rounded-full mr-3">
+                                <i class="fas fa-leaf text-xl"></i>
+                            </div>
+                            <span class="font-medium">Ingredientes Naturais</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-yellow-100 text-yellow-600 p-3 rounded-full mr-3">
+                                <i class="fas fa-heart text-xl"></i>
+                            </div>
+                            <span class="font-medium">Feito com Amor</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-green-100 text-green-600 p-3 rounded-full mr-3">
+                                <i class="fas fa-star text-xl"></i>
+                            </div>
+                            <span class="font-medium">Qualidade Premium</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 text-blue-600 p-3 rounded-full mr-3">
+                                <i class="fas fa-award text-xl"></i>
+                            </div>
+                            <span class="font-medium">Prêmios</span>
+                        </div>
+                    </div>
+                    <button class="bg-pink-600 hover:bg-pink-700 text-white px-6 py-3 rounded-full font-medium transition duration-300">
+                        Conheça Nossa Equipe <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">O Que Dizem Nossos <span class="text-pink-600">Clientes</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    A felicidade dos nossos clientes é nossa maior recompensa.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="text-sm text-gray-500">2 semanas atrás</span>
+                    </div>
+                    <p class="text-gray-600 mb-6">
+                        "Os doces da Delícia são incríveis! Comprei para o aniversário da minha filha e todos elogiaram. O brigadeiro gourmet é divino!"
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" 
+                             alt="Ana Clara" 
+                             class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-800">Ana Clara</h4>
+                            <span class="text-sm text-gray-500">São Paulo, SP</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="text-sm text-gray-500">1 mês atrás</span>
+                    </div>
+                    <p class="text-gray-600 mb-6">
+                        "Sou cliente há anos e nunca me decepcionei. A qualidade é consistente e o atendimento é excelente. Recomendo a todos!"
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" 
+                             alt="Ricardo Almeida" 
+                             class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-800">Ricardo Almeida</h4>
+                            <span class="text-sm text-gray-500">Rio de Janeiro, RJ</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="text-sm text-gray-500">3 dias atrás</span>
+                    </div>
+                    <p class="text-gray-600 mb-6">
+                        "Comprei a torta de morango para uma reunião de família e foi um sucesso! Todos pediram o contato da confeitaria. Obrigada!"
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" 
+                             alt="Fernanda Santos" 
+                             class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-800">Fernanda Santos</h4>
+                            <span class="text-sm text-gray-500">Belo Horizonte, MG</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16 bg-pink-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Receba Nossas <span class="text-yellow-300">Ofertas</span></h2>
+            <p class="text-pink-100 max-w-2xl mx-auto mb-8">
+                Cadastre-se para receber novidades, promoções exclusivas e dicas de doces diretamente no seu e-mail.
+            </p>
+            <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+                <input type="email" 
+                       placeholder="Seu melhor e-mail" 
+                       class="flex-1 px-4 py-3 rounded-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-yellow-300">
+                <button type="submit" 
+                        class="bg-yellow-400 hover:bg-yellow-500 text-gray-800 font-bold px-6 py-3 rounded-full transition duration-300">
+                    Cadastrar <i class="fas fa-paper-plane ml-2"></i>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Entre em <span class="text-pink-600">Contato</span></h2>
+                    <p class="text-gray-600 mb-8">
+                        Tem dúvidas, sugestões ou quer encomendar doces especiais? Estamos aqui para ajudar!
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-pink-100 text-pink-600 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Endereço</h4>
+                                <p class="text-gray-600">Rua dos Doces, 123<br>Betim/MG</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-yellow-100 text-yellow-600 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Telefone</h4>
+                                <p class="text-gray-600">(31) 1234-5678</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-green-100 text-green-600 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">E-mail</h4>
+                                <p class="text-gray-600">contato@deliciadoces.com.br</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 text-blue-600 p-3 rounded-full mr-4">
+                                <i class="fas fa-clock text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Horário de Funcionamento</h4>
+                                <p class="text-gray-600">Segunda a Sexta: 9h às 18h<br>Sábado: 9h às 14h</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 flex space-x-4">
+                        <a href="#" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-pink-500 text-white p-3 rounded-full hover:bg-pink-600 transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-blue-400 text-white p-3 rounded-full hover:bg-blue-500 transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-red-500 text-white p-3 rounded-full hover:bg-red-600 transition duration-300">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <form class="bg-gray-50 p-8 rounded-xl shadow-sm">
+                        <div class="mb-6">
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Seu Nome</label>
+                            <input type="text" 
+                                   id="name" 
+                                   class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-300">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Seu E-mail</label>
+                            <input type="email" 
+                                   id="email" 
+                                   class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-300">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="subject" class="block text-gray-700 font-medium mb-2">Assunto</label>
+                            <input type="text" 
+                                   id="subject" 
+                                   class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-300">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Sua Mensagem</label>
+                            <textarea id="message" 
+                                      rows="5" 
+                                      class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-300"></textarea>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                            Enviar Mensagem <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-candy-cane text-3xl text-pink-500 mr-2"></i>
+                        <h3 class="logo-font text-2xl">Delícia Doces</h3>
+                    </div>
+                    <p class="text-gray-400">
+                        Confeitaria artesanal que transforma momentos comuns em experiências doces inesquecíveis.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition duration-300">Início</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-white transition duration-300">Produtos</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition duration-300">Sobre Nós</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white transition duration-300">Depoimentos</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Produtos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Brigadeiros</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Cupcakes</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Tortas</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Bolos</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Doces Finos</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">
+                        Assine nossa newsletter para receber novidades e promoções.
+                    </p>
+                    <form class="flex">
+                        <input type="email" 
+                               placeholder="Seu e-mail" 
+                               class="px-4 py-2 rounded-l-lg text-gray-800 focus:outline-none w-full">
+                        <button type="submit" 
+                                class="bg-pink-600 hover:bg-pink-700 px-4 py-2 rounded-r-lg transition duration-300">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">
+                    &copy; 2023 Delícia Doces. Todos os direitos reservados.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-cc-visa text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-cc-mastercard text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-cc-paypal text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-cc-amex text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" 
+            class="fixed bottom-8 right-8 bg-pink-600 text-white p-4 rounded-full shadow-lg opacity-0 invisible transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Add to Cart Animation
+        const addToCartButtons = document.querySelectorAll('.candy-card button');
+        
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.stopPropagation();
+                
+                // Create flying candy element
+                const candy = document.createElement('div');
+                candy.innerHTML = '<i class="fas fa-candy-cane text-pink-500"></i>';
+                candy.style.position = 'fixed';
+                candy.style.fontSize = '24px';
+                candy.style.zIndex = '9999';
+                
+                // Get button position
+                const rect = button.getBoundingClientRect();
+                candy.style.left = rect.left + 'px';
+                candy.style.top = rect.top + 'px';
+                document.body.appendChild(candy);
+                
+                // Animate to cart
+                const cart = document.querySelector('header button.bg-pink-600');
+                const cartRect = cart.getBoundingClientRect();
+                
+                const animation = candy.animate([
+                    { 
+                        transform: 'translate(0, 0) scale(1)',
+                        opacity: 1 
+                    },
+                    { 
+                        transform: `translate(${cartRect.left - rect.left}px, ${cartRect.top - rect.top}px) scale(0.5)`,
+                        opacity: 0.5 
+                    }
+                ], {
+                    duration: 800,
+                    easing: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)'
+                });
+                
+                animation.onfinish = () => {
+                    candy.remove();
+                    // Add cart bounce effect
+                    cart.classList.add('animate-bounce');
+                    setTimeout(() => {
+                        cart.classList.remove('animate-bounce');
+                    }, 1000);
+                };
+            });
+        });
+    </script>
+</body>
+</html>
